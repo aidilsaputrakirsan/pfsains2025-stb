@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Proyek PFsains 2025-2028</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+        }
+
+        .timeline-item {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .timeline-item:hover {
+            border-color: #3182ce;
+            box-shadow: 0 8px 25px rgba(49, 130, 206, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .year-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3182ce, #2b77cb);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:nth-child(1) .year-badge {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+
+        .timeline-item:nth-child(2) .year-badge {
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+        }
+
+        .timeline-item:nth-child(3) .year-badge {
+            background: linear-gradient(135deg, #ed8936, #dd6b20);
+        }
+
+        .timeline-item:nth-child(4) .year-badge {
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+        }
+
+        .phase-info {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .phase-badge {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tkt-badge {
+            background: #e6fffa;
+            color: #234e52;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 12px;
+        }
+
+        .budget {
+            background: #f0fff4;
+            color: #22543d;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-left: 4px solid #38a169;
+        }
+
+        .milestone-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .milestone-list li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        .milestone-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3182ce;
+            font-weight: bold;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+        }
+
+        .progress-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78, #4299e1);
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 3% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px 32px;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .close {
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            color: white;
+            font-size: 28px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 32px;
+            overflow-y: auto;
+            max-height: calc(85vh - 120px);
+        }
+
+        .modal-section {
+            margin-bottom: 28px;
+        }
+
+        .modal-section h3 {
+            color: #1a365d;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px 16px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a365d;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .info-box {
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+
+        .info-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .funding-explanation {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .funding-explanation h2 {
+            color: #1a365d;
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+        }
+
+        .funding-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .funding-card {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #3182ce;
+        }
+
+        .funding-card h4 {
+            color: #1a365d;
+            margin-bottom: 8px;
+        }
+
+        .funding-card p {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .timeline-container {
+                padding: 24px 16px;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+
+            .modal-header, .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Roadmap Proyek PFsains 2025-2028</h1>
+            <p>Sistem Traceability dan Monitoring Kualitas Pangan Berbasis Set-Top Box Daur Ulang untuk Memperkuat Ketahanan Pangan Berkelanjutan di Kawasan IKN dan Kalimantan Timur</p>
+        </div>
+
+        <!-- Project Overview -->
+        <div class="funding-explanation">
+            <h2>🎯 Visi & Tujuan Proyek</h2>
+            <div class="funding-types">
+                <div class="funding-card">
+                    <h4>🌟 Visi Utama</h4>
+                    <p>Menjadi sistem traceability pangan terdepan di Kalimantan yang mendukung ketahanan pangan IKN dan memberdayakan UMKM lokal melalui teknologi ramah lingkungan.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>💡 Inovasi Kunci</h4>
+                    <p>Memanfaatkan Set-Top Box bekas (daur ulang) sebagai edge computing untuk monitoring kualitas pangan real-time dengan biaya sangat terjangkau.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>🎯 Target Impact</h4>
+                    <p>Mengurangi food waste 20-30%, meningkatkan pendapatan UMKM 15-25%, dan memastikan keamanan pangan untuk 1+ juta penduduk IKN.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Roles -->
+        <div class="funding-explanation">
+            <h2>🤝 Peran Tim & Expertise</h2>
+            <div class="funding-types">
+                <div class="funding-card">
+                    <h4>👨‍💻 Sistem Informasi</h4>
+                    <p><strong>Peran:</strong> Technology Lead - System architecture, database design, dashboard development, API integration, project management & koordinasi tim.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>🔬 Teknologi Pangan</h4>
+                    <p><strong>Peran:</strong> Food Safety Expert - Parameter kualitas pangan, standar keamanan, kalibrasi sensor, validasi protokol, compliance BPOM.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>📊 Teknik Industri</h4>
+                    <p><strong>Peran:</strong> Supply Chain Specialist - Optimasi rantai pasok, analisis logistik, cost-benefit analysis, strategi pemberdayaan UMKM.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline">
+                <!-- Tahun 1: 2025 -->
+                <div class="timeline-item" onclick="openModal('year1')">
+                    <div class="year-badge">2025</div>
+                    <div class="phase-info">
+                        <span class="phase-badge">FASE IDEASI</span>
+                        <span class="phase-badge tkt-badge">TKT 1-2</span>
+                    </div>
+                    <h3 class="timeline-title">Tahun Pondasi</h3>
+                    <div class="budget">💰 Anggaran: 70 Juta (PFsains)</div>
+                    <ul class="milestone-list">
+                        <li>Desain & Arsitektur Sistem</li>
+                        <li>Prototipe STB Daur Ulang</li>
+                        <li>Pengujian Integrasi Sensor</li>
+                        <li>Wawancara Pemangku Kepentingan</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div class="progress-label">Progress Target</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tahun 2: 2026 -->
+                <div class="timeline-item" onclick="openModal('year2')">
+                    <div class="year-badge">2026</div>
+                    <div class="phase-info">
+                        <span class="phase-badge">FASE IDEASI</span>
+                        <span class="phase-badge tkt-badge">TKT 3-4</span>
+                    </div>
+                    <h3 class="timeline-title">Tahun Pengembangan</h3>
+                    <div class="budget">💰 Anggaran: 100 Juta (Mandiri)</div>
+                    <ul class="milestone-list">
+                        <li>Pengembangan Dashboard Lengkap</li>
+                        <li>Uji Lapangan dengan 10 UMKM</li>
+                        <li>Validasi Model Bisnis</li>
+                        <li>Membangun Kemitraan Strategis</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div class="progress-label">Progress Target</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tahun 3: 2027 -->
+                <div class="timeline-item" onclick="openModal('year3')">
+                    <div class="year-badge">2027</div>
+                    <div class="phase-info">
+                        <span class="phase-badge">FASE IMPLEMENTASI</span>
+                        <span class="phase-badge tkt-badge">TKT 5-6</span>
+                    </div>
+                    <h3 class="timeline-title">Masuk Pasar</h3>
+                    <div class="budget">💰 Anggaran: 500 Juta (Seri A)</div>
+                    <ul class="milestone-list">
+                        <li>Penyebaran 30 Node Aktif</li>
+                        <li>Kemitraan 15 UMKM Berbayar</li>
+                        <li>Integrasi dengan Ritel Modern</li>
+                        <li>Generasi Pendapatan Pertama</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div class="progress-label">Progress Target</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tahun 4: 2028 -->
+                <div class="timeline-item" onclick="openModal('year4')">
+                    <div class="year-badge">2028</div>
+                    <div class="phase-info">
+                        <span class="phase-badge">FASE IMPLEMENTASI</span>
+                        <span class="phase-badge tkt-badge">TKT 7-9</span>
+                    </div>
+                    <h3 class="timeline-title">Tahun Ekspansi</h3>
+                    <div class="budget">💰 Anggaran: 2 Miliar (Seri B)</div>
+                    <ul class="milestone-list">
+                        <li>Jaringan 100+ Node Aktif</li>
+                        <li>Ekspansi Multi-Provinsi</li>
+                        <li>Persiapan Penawaran Saham</li>
+                        <li>Lisensi Teknologi Regional</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div class="progress-label">Progress Target</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-title">🚀 Mengapa Proyek Ini Akan Berhasil?</div>
+            <p><strong>Perfect Timing:</strong> IKN sedang dibangun dan butuh sistem pangan modern → <strong>Unique Technology:</strong> STB daur ulang = cost-effective & sustainable → <strong>Strong Team:</strong> Kombinasi SI + Teknologi Pangan + Teknik Industri = expertise lengkap → <strong>Real Market Need:</strong> UMKM dan consumer siap adopsi teknologi traceability.</p>
+        </div>
+
+        <!-- Success Metrics -->
+        <div class="funding-explanation">
+            <h2>📈 Target Keberhasilan & Dampak</h2>
+            <div class="funding-types">
+                <div class="funding-card">
+                    <h4>🎯 Metrics Teknis</h4>
+                    <p>System uptime >95%, akurasi data >98%, response time <3 detik, kemampuan offline 72+ jam, coverage 3+ komoditas utama.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>💼 Metrics Bisnis</h4>
+                    <p>50+ UMKM teronboard, 100+ node aktif, pendapatan 300+ juta/tahun, customer satisfaction >4.5/5, market share 40%+ Kalimantan.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>🌍 Metrics Sosial</h4>
+                    <p>Food waste turun 20-30%, pendapatan UMKM naik 15-25%, 1000+ consumer terlayani, 50+ lapangan kerja tercipta, model replika 3+ provinsi.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Competitive Advantages -->
+        <div class="funding-explanation">
+            <h2>🏆 Keunggulan Kompetitif Kita</h2>
+            <div class="funding-types">
+                <div class="funding-card">
+                    <h4>💰 Cost-Effective</h4>
+                    <p>Biaya 1 juta/node vs solusi existing 5-10 juta. STB bekas mudah didapat, sensor basic tapi reliable, maintenance minimal.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>🌱 Sustainability</h4>
+                    <p>Repurpose electronic waste, low power consumption, support local economy, reduce carbon footprint, circular economy model.</p>
+                </div>
+                <div class="funding-card">
+                    <h4>🎯 Market Fit</h4>
+                    <p>Perfect timing dengan IKN development, government priority alignment, UMKM ready untuk digitalisasi, proven market demand.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Tahun 1 -->
+    <div id="year1Modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Tahun 1 (2025): Tahun Pondasi</div>
+                <div class="modal-subtitle">Fase Ideasi • TKT 1-2: Riset Dasar & Bukti Konsep</div>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🎯 Target & Tujuan Utama</h3>
+                    <ul class="milestone-list">
+                        <li>Menyelesaikan riset dasar sistem traceability pangan</li>
+                        <li>Mengembangkan prototipe kerja STB daur ulang + sensor</li>
+                        <li>Validasi kelayakan teknis konsep edge computing</li>
+                        <li>Membangun jaringan pemangku kepentingan awal</li>
+                        <li>Menyusun dokumentasi teknis lengkap</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🔧 Hasil Teknis yang Diharapkan</h3>
+                    <ul class="milestone-list">
+                        <li>STB HG680P dengan 4 sensor terintegrasi</li>
+                        <li>Dashboard dasar untuk pemantauan</li>
+                        <li>Skema basis data untuk traceability</li>
+                        <li>Prototipe API untuk pengumpulan data</li>
+                        <li>Sistem pembuat kode QR otomatis</li>
+                    </ul>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">1</span>
+                        <div class="stat-label">Prototipe Kerja</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <div class="stat-label">Wawancara UMKM</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">70Jt</span>
+                        <div class="stat-label">Anggaran (Rupiah)</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">95%</span>
+                        <div class="stat-label">Target Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Tahun 2 -->
+    <div id="year2Modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Tahun 2 (2026): Tahun Pengembangan</div>
+                <div class="modal-subtitle">Fase Ideasi • TKT 3-4: Pengembangan Sistem & Validasi</div>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🎯 Target & Tujuan Utama</h3>
+                    <ul class="milestone-list">
+                        <li>Mengembangkan sistem siap komersial</li>
+                        <li>Uji lapangan dengan rantai pasok nyata</li>
+                        <li>Validasi & penyempurnaan model bisnis</li>
+                        <li>Membangun kemitraan dengan pemangku kepentingan kunci</li>
+                        <li>Perlindungan kekayaan intelektual</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🔧 Hasil Teknis yang Diharapkan</h3>
+                    <ul class="milestone-list">
+                        <li>Dashboard web & mobile lengkap</li>
+                        <li>Sistem manajemen multi-pengguna</li>
+                        <li>Sistem pemantauan & peringatan real-time</li>
+                        <li>Fitur analitik & pelaporan data</li>
+                        <li>Integrasi dengan sistem kasir yang ada</li>
+                    </ul>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">10</span>
+                        <div class="stat-label">Mitra UMKM</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15</span>
+                        <div class="stat-label">Node Terpasang</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100Jt</span>
+                        <div class="stat-label">Anggaran Mandiri</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <div class="stat-label">Komoditas Terlacak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Tahun 3 -->
+    <div id="year3Modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Tahun 3 (2027): Masuk Pasar</div>
+                <div class="modal-subtitle">Fase Implementasi • TKT 5-6: Pilot Komersial & Validasi Pasar</div>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🎯 Target & Tujuan Utama</h3>
+                    <ul class="milestone-list">
+                        <li>Luncurkan pilot komersial dengan 30 node</li>
+                        <li>Rekrut 15 UMKM sebagai pelanggan berbayar</li>
+                        <li>Integrasi dengan rantai ritel modern</li>
+                        <li>Hasilkan pendapatan pertama yang signifikan</li>
+                        <li>Perluas tim menjadi 8-10 karyawan</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>💰 Target Bisnis & Keuangan</h3>
+                    <ul class="milestone-list">
+                        <li>Pendapatan Berulang Bulanan: 25 juta rupiah</li>
+                        <li>Biaya Akuisisi Pelanggan: kurang dari 1 juta</li>
+                        <li>Nilai Seumur Hidup Pelanggan: lebih dari 5 juta</li>
+                        <li>Margin Kotor: lebih dari 60%</li>
+                        <li>Skor Promotor Bersih: lebih dari 40</li>
+                    </ul>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">30</span>
+                        <div class="stat-label">Node Aktif</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15</span>
+                        <div class="stat-label">Mitra UMKM</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">300Jt</span>
+                        <div class="stat-label">Pendapatan Tahunan</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">Cakupan Kota</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Tahun 4 -->
+    <div id="year4Modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Tahun 4 (2028): Tahun Ekspansi</div>
+                <div class="modal-subtitle">Fase Implementasi • TKT 7-9: Penyebaran Massal & Kepemimpinan Pasar</div>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🎯 Target & Tujuan Utama</h3>
+                    <ul class="milestone-list">
+                        <li>Kembangkan ke 100+ node di seluruh Kalimantan</li>
+                        <li>Perluas ke 50+ mitra UMKM aktif</li>
+                        <li>Operasi multi-provinsi (Kalsel, Kalteng)</li>
+                        <li>Persiapan penawaran saham publik atau akuisisi strategis</li>
+                        <li>Lisensi teknologi ke daerah lain di Indonesia</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🏆 Target Kepemimpinan Pasar</h3>
+                    <ul class="milestone-list">
+                        <li>Pangsa pasar: lebih dari 40% traceability pangan Kalimantan</li>
+                        <li>Pengakuan merek: Top-of-mind untuk keamanan pangan</li>
+                        <li>Kemitraan pemerintah: Sistem pangan resmi IKN</li>
+                        <li>Ekspansi internasional: Proyek pilot ASEAN</li>
+                        <li>Kepemimpinan pemikiran: Kontribusi standar industri</li>
+                    </ul>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">100+</span>
+                        <div class="stat-label">Node Aktif</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label">Jaringan UMKM</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1,5M</span>
+                        <div class="stat-label">Pendapatan Tahunan</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">25+</span>
+                        <div class="stat-label">Anggota Tim</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk membuka modal
+        function openModal(yearId) {
+            document.getElementById(yearId + 'Modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Menutup modal ketika mengklik X atau di luar modal
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.onclick = function() {
+                this.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Animasi progress bar saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const targetWidth = progressBar.style.width;
+                        progressBar.style.width = '0%';
+                        setTimeout(() => {
+                            progressBar.style.width = targetWidth;
+                        }, 300);
+                    }
+                });
+            });
+
+            progressBars.forEach(bar => {
+                observer.observe(bar);
+            });
+
+            // Animasi fade-in untuk timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        });
+
+        // Keyboard navigation untuk modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const openModal = document.querySelector('.modal[style*="block"]');
+                if (openModal) {
+                    openModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
