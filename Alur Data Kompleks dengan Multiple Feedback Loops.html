@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alur Data Sistem IoT Food Monitoring - Mermaid</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .diagram-container {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: #5d6d7e;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .legend {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .legend h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .legend-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .legend-item h4 {
+            margin-bottom: 8px;
+            color: #ecf0f1;
+            font-size: 1rem;
+        }
+
+        .legend-item p {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Mermaid styling */
+        .mermaid {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Sistem IoT Food Monitoring</h1>
+            <p>Alur Data Kompleks dengan Multiple Feedback Loops</p>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+                flowchart TD
+                    %% Komponen Utama
+                    A[🔬 Sensor Array<br/>Multi-parameter monitoring<br/>Temperature, pH, Gas, Humidity] 
+                    B[🌐 IoT Gateway<br/>Edge processing & control<br/>Data aggregation & filtering]
+                    C[📡 Communication Layer<br/>4G/WiFi/LoRaWAN<br/>Secure transmission]
+                    D[☁️ Cloud Platform<br/>Analytics & ML processing<br/>Data storage & insights]
+                    E[📱 User Applications<br/>Mobile & web interface<br/>Control & monitoring]
+
+                    %% ALUR 1: DATA FORWARD (GARIS LURUS SOLID)
+                    A -->|1️⃣ SENSOR DATA<br/>📊 Temperature: 25°C<br/>🧪 pH: 6.5<br/>💨 Gas: Normal| B
+                    B -->|2️⃣ PROCESSED DATA<br/>📈 Filtered & validated<br/>🔍 Quality checked<br/>📦 Packaged| C
+                    C -->|3️⃣ TRANSMITTED DATA<br/>🔐 Encrypted payload<br/>📡 Secure protocol<br/>⚡ Real-time| D
+                    D -->|4️⃣ ANALYTICS RESULT<br/>📊 Dashboard data<br/>📈 Trends & graphs<br/>🎯 Insights| E
+
+                    %% ALUR 2: CONTROL COMMANDS (GARIS PUTUS-PUTUS)
+                    E -.->|5️⃣ USER COMMAND<br/>⚙️ Calibrate sensors<br/>🎛️ Change settings<br/>🔄 Reset system| D
+                    D -.->|6️⃣ PROCESSED COMMAND<br/>✅ Validated request<br/>🔐 Security check<br/>📋 Action plan| C
+                    C -.->|7️⃣ COMMAND TRANSMISSION<br/>📡 Secure channel<br/>🎯 Target device<br/>⏱️ Time-stamped| B
+                    B -.->|8️⃣ DEVICE CONTROL<br/>🔧 Execute command<br/>⚡ Actuator control<br/>📊 Sensor adjustment| A
+
+                    %% ALUR 3: CONFIGURATION (GARIS TEBAL)
+                    D ==>|9️⃣ SYSTEM CONFIG<br/>⚙️ Network settings<br/>🔧 Device parameters<br/>📊 Thresholds| B
+                    D ==>|🔟 FIRMWARE UPDATE<br/>💾 New software<br/>🚀 Feature updates<br/>🔒 Security patches| A
+
+                    %% ALUR 4: SYNC DUA ARAH
+                    D <-->|1️⃣1️⃣ BIDIRECTIONAL SYNC<br/>↕️ Status updates<br/>💓 Heartbeat signal<br/>🔄 State management| E
+
+                    %% ALUR 5: EMERGENCY & ALERTS (GARIS PUTUS-PUTUS KHUSUS)
+                    A -.->|1️⃣2️⃣ CRITICAL ALERT<br/>🚨 Emergency condition<br/>⚠️ Threshold exceeded<br/>📢 Immediate action| E
+                    B -.->|1️⃣3️⃣ SYSTEM STATUS<br/>💓 Health monitoring<br/>⚡ Performance data<br/>🔧 Maintenance alert| E
+
+                    %% ALUR 6: MACHINE LEARNING FEEDBACK (GARIS TEBAL KHUSUS)
+                    D ==>|1️⃣4️⃣ ML OPTIMIZATION<br/>🤖 Auto adjustment<br/>📈 Pattern learning<br/>🎯 Efficiency tuning| B
+                    D ==>|1️⃣5️⃣ PREDICTIVE MODEL<br/>🔮 Forecast data<br/>📊 Trend prediction<br/>⚙️ Auto calibration| A
+
+                    %% ALUR 7: END-TO-END FEEDBACK
+                    E -.->|1️⃣6️⃣ USER FEEDBACK<br/>👤 Manual optimization<br/>📝 User preferences<br/>🎯 Custom settings| A
+
+                    %% Styling
+                    classDef sensor fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+                    classDef gateway fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+                    classDef comm fill:#e8f5e8,stroke:#2e7d32,stroke-width:3px
+                    classDef cloud fill:#fff3e0,stroke:#ef6c00,stroke-width:3px
+                    classDef apps fill:#fce4ec,stroke:#c2185b,stroke-width:3px
+
+                    class A sensor
+                    class B gateway
+                    class C comm
+                    class D cloud
+                    class E apps
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🔄 Forward Data Stream</h3>
+                <p>Sensor data mengalir kontinyu dari array sensor (suhu, pH, gas, kelembaban) melalui gateway untuk edge processing, kemudian ditransmisikan ke cloud platform untuk analytics dan machine learning, akhirnya ditampilkan di user interface untuk real-time monitoring.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>⚡ Reverse Control Stream</h3>
+                <p>User commands mengalir balik dari mobile app melalui cloud platform, diteruskan via communication layer ke gateway, dan akhirnya mengontrol sensor dan actuator untuk remote calibration, parameter adjustment, dan system control.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>⚙️ Configuration Management</h3>
+                <p>System settings, firmware updates, dan optimization parameters didistribusikan dari cloud platform ke edge devices untuk maintenance, performance tuning, dan feature updates melalui over-the-air (OTA) mechanism.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🚨 Alert & Notification System</h3>
+                <p>Multi-directional alert system: critical alerts dari sensors untuk emergency response, system health monitoring dari gateway untuk maintenance, dan user-initiated actions untuk proactive management.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🤖 Machine Learning Feedback</h3>
+                <p>AI insights dari cloud analysis dikembalikan ke edge devices untuk automatic parameter adjustment, predictive maintenance, dan continuous optimization berdasarkan historical data dan pattern recognition.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🔍 End-to-End Traceability</h3>
+                <p>Complete data loop dari sensor readings hingga user decisions, kemudian feedback ke system optimization untuk continuous improvement, quality assurance, dan compliance monitoring dalam food safety management.</p>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3>📋 Keterangan Jenis Alur Data</h3>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <h4>→ Primary Data Flow</h4>
+                    <p>Alur data utama dari sensor ke cloud (solid arrows) - continuous monitoring data stream</p>
+                </div>
+                <div class="legend-item">
+                    <h4>-.-> Control Commands</h4>
+                    <p>Perintah kontrol dari aplikasi ke perangkat (dashed arrows) - bidirectional control signals</p>
+                </div>
+                <div class="legend-item">
+                    <h4>==> Configuration Updates</h4>
+                    <p>Update konfigurasi dan firmware (thick arrows) - system management and updates</p>
+                </div>
+                <div class="legend-item">
+                    <h4><--> Bidirectional Sync</h4>
+                    <p>Sinkronisasi dua arah (double arrows) - real-time status synchronization</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
