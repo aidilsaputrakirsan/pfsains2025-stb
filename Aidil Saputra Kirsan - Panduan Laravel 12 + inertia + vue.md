@@ -1593,7 +1593,7 @@ Panduan ini telah **DIUPDATE dan DIVERIFIKASI** untuk Laravel 12 (2025) dengan:
 
 **Next Steps untuk Mahasiswa:**
 1. Install Laravel Herd
-2. Ikuti panduan step-by-step (sudah diperbaiki)
+2. Ikuti panduan step-by-step (sudah diperbaiki),
 3. Test setiap langkah sebelum lanjut
 4. Customize design sesuai kebutuhan
 5. Deploy ke hosting yang mendukung Laravel
