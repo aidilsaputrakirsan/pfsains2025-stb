@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skema Realisasi Inovasi & Pemberdayaan Masyarakat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .step-box {
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            min-width: 160px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .step-box.hardware { border-color: #e74c3c; background: #ffeaea; }
+        .step-box.software { border-color: #27ae60; background: #e8f5e8; }
+        .step-box.integration { border-color: #f39c12; background: #fef9e7; }
+        .step-box.testing { border-color: #9b59b6; background: #f4ecf7; }
+        
+        .step-number {
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 8px auto;
+            font-size: 12px;
+        }
+        
+        .step-number.hardware { background: #e74c3c; }
+        .step-number.software { background: #27ae60; }
+        .step-number.integration { background: #f39c12; }
+        .step-number.testing { background: #9b59b6; }
+        
+        .step-title {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .step-desc {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.3;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .empowerment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .empowerment-box {
+            border: 2px solid #27ae60;
+            border-radius: 10px;
+            padding: 15px;
+            background: #e8f5e8;
+        }
+        
+        .empowerment-title {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+        
+        .empowerment-content {
+            font-size: 14px;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+        
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #27ae60, #f39c12, #e74c3c);
+            z-index: 1;
+        }
+        
+        .timeline-step {
+            background: white;
+            border: 3px solid #3498db;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .timeline-step.step2 { border-color: #27ae60; }
+        .timeline-step.step3 { border-color: #f39c12; }
+        .timeline-step.step4 { border-color: #e74c3c; }
+        
+        .week-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .flow-container {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+            
+            .empowerment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-title">
+            Skema Realisasi Inovasi Teknologi & Pemberdayaan Masyarakat
+        </div>
+        
+        <!-- SECTION 1: REALISASI TEKNOLOGI -->
+        <div class="section">
+            <div class="section-title">🔧 Skema Realisasi Inovasi Teknologi</div>
+            
+            <div class="flow-container">
+                <div class="step-box hardware">
+                    <div class="step-number hardware">1</div>
+                    <div class="step-title">Riset & Persiapan</div>
+                    <div class="step-desc">
+                        • Studi parameter pangan<br>
+                        • Survey UMKM<br>
+                        • Pengadaan komponen
+                    </div>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step-box software">
+                    <div class="step-number software">2</div>
+                    <div class="step-title">Development</div>
+                    <div class="step-desc">
+                        • Assembly hardware<br>
+                        • Mobile app development<br>
+                        • Cloud platform setup
+                    </div>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step-box integration">
+                    <div class="step-number integration">3</div>
+                    <div class="step-title">Integrasi & Testing</div>
+                    <div class="step-desc">
+                        • System integration<br>
+                        • Lab testing<br>
+                        • Kalibrasi sensor
+                    </div>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="step-box testing">
+                    <div class="step-number testing">4</div>
+                    <div class="step-title">Pilot Implementation</div>
+                    <div class="step-desc">
+                        • Instalasi di UMKM<br>
+                        • Field testing<br>
+                        • Data collection
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-step">
+                    <div>RISET</div>
+                    <div class="week-label">Minggu 1-2</div>
+                </div>
+                <div class="timeline-step step2">
+                    <div>DEVELOP</div>
+                    <div class="week-label">Minggu 3-6</div>
+                </div>
+                <div class="timeline-step step3">
+                    <div>TESTING</div>
+                    <div class="week-label">Minggu 7-8</div>
+                </div>
+                <div class="timeline-step step4">
+                    <div>PILOT</div>
+                    <div class="week-label">Minggu 9-12</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 2: PEMBERDAYAAN MASYARAKAT -->
+        <div class="section">
+            <div class="section-title">👥 Skema Pemberdayaan Masyarakat</div>
+            
+            <div class="empowerment-grid">
+                <div class="empowerment-box">
+                    <div class="empowerment-title">📢 Sosialisasi & Pencerdasan</div>
+                    <div class="empowerment-content">
+                        • Workshop IoT & digital literacy<br>
+                        • Seminar food safety awareness<br>
+                        • Pendekatan asosiasi UMKM<br>
+                        • Materi disesuaikan tingkat pendidikan
+                    </div>
+                </div>
+                
+                <div class="empowerment-box">
+                    <div class="empowerment-title">🎓 Pelatihan Teknis</div>
+                    <div class="empowerment-content">
+                        • Basic operation training<br>
+                        • Maintenance & troubleshooting<br>
+                        • Data interpretation & decision making<br>
+                        • Video tutorial & step-by-step guide
+                    </div>
+                </div>
+                
+                <div class="empowerment-box">
+                    <div class="empowerment-title">🤝 Pendampingan Intensif</div>
+                    <div class="empowerment-content">
+                        • 4 minggu pendampingan awal<br>
+                        • Technical support & troubleshooting<br>
+                        • Business advisory untuk optimasi<br>
+                        • Weekly feedback sessions
+                    </div>
+                </div>
+                
+                <div class="empowerment-box">
+                    <div class="empowerment-title">📊 Monitoring & Evaluasi</div>
+                    <div class="empowerment-content">
+                        • Remote system monitoring<br>
+                        • Periodic site visits<br>
+                        • Impact measurement (ekonomi & sosial)<br>
+                        • Sustainability assessment
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 3: TARGET OUTPUT -->
+        <div class="section">
+            <div class="section-title">🎯 Target Output & Outcome</div>
+            
+            <div style="display: flex; justify-content: space-around; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <div style="text-align: center; padding: 15px; border: 2px solid #27ae60; border-radius: 10px; background: #e8f5e8; min-width: 150px;">
+                    <div style="font-size: 24px; color: #27ae60; font-weight: bold;">TKT 4-5</div>
+                    <div style="font-size: 12px; color: #2c3e50;">Prototype Validated</div>
+                </div>
+                
+                <div style="text-align: center; padding: 15px; border: 2px solid #3498db; border-radius: 10px; background: #ebf3fd; min-width: 150px;">
+                    <div style="font-size: 24px; color: #3498db; font-weight: bold;">3 UMKM</div>
+                    <div style="font-size: 12px; color: #2c3e50;">Pilot Partners</div>
+                </div>
+                
+                <div style="text-align: center; padding: 15px; border: 2px solid #f39c12; border-radius: 10px; background: #fef9e7; min-width: 150px;">
+                    <div style="font-size: 24px; color: #f39c12; font-weight: bold;">20%</div>
+                    <div style="font-size: 12px; color: #2c3e50;">Reduction Post-Harvest Loss</div>
+                </div>
+                
+                <div style="text-align: center; padding: 15px; border: 2px solid #e74c3c; border-radius: 10px; background: #fdeaea; min-width: 150px;">
+                    <div style="font-size: 24px; color: #e74c3c; font-weight: bold;">90%</div>
+                    <div style="font-size: 12px; color: #2c3e50;">User Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
